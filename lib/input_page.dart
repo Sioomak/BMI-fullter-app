@@ -4,9 +4,13 @@ import 'icont_content.dart';
 import 'reusable_card.dart';
 
 const bottomContainerHeight = 50.0;
+
 const activeCardsColor = Color(0xFF1D1E33);
 const inactiveCardColor = Color(0xFF111328);
+
 const bottomContainerColor = Color(0xFFEB1555);
+
+enum Gender {male, female,};
 
 class InputPage extends StatefulWidget {
   @override
@@ -18,9 +22,9 @@ class _InputPageState extends State<InputPage> {
   Color femaleCardColour = inactiveCardColor;
 
   //1 = male, 2 = female
-  void updateColour(int gender) {
+  void updateColour(Gender selectedGender) {
     //male card tapped
-    if (gender == 1) {
+    if (selectedGender == Gender.male) {
       if (maleCardColour == inactiveCardColor) {
         maleCardColour = activeCardsColor;
         femaleCardColour = inactiveCardColor;
@@ -29,7 +33,7 @@ class _InputPageState extends State<InputPage> {
       }
     }
     //female card tapped
-    if (gender == 2) {
+    if (selectedGender == Gender.female) {
       if (femaleCardColour == inactiveCardColor) {
         femaleCardColour = activeCardsColor;
         maleCardColour = inactiveCardColor;
